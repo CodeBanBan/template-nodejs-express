@@ -14,6 +14,7 @@ const awsConfig = {
   region: AWS_REGION
 }
 
+// --- Remove this block if use AWS-Lambda --- //
 if (NODE_ENV === 'prod') {
   awsConfig.accessKeyId = AWS_ACCESS_KEY_ID
   awsConfig.secretAccessKey = AWS_SECRET_ACCESS_KEY

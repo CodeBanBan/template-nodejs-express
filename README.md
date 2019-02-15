@@ -11,6 +11,9 @@
     - save data on disk :
     `docker run -d --name dynamodb-dev -p 8000:8000 -v /Users/Shared/dynamodb-dev:/database amazon/dynamodb-local -jar DynamoDBLocal.jar -dbPath /database`
 
+    ### Prepare to your project
+    - App.js
+        - review your aws config (line 18)
 
 # Reference
 
