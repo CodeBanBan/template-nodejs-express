@@ -1,0 +1,10 @@
+{
+  "lambda": {
+    "role": "sample-express-lambda-executor",
+    "name": "sample-express-lambda",
+    "region": "ap-northeast-1"
+  },
+  "api": {
+    "id": "10vi0dz7c4"
+  }
+}
