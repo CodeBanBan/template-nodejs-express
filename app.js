@@ -5,8 +5,8 @@ const NODE_ENV = process.env.NODE_ENV || 'dev'
 const Dynamoose = require('dynamoose')
 
 // --- Dynamoose Configuration --- //
-const AWS_ACCESS_KEY_ID = 'AKIAISWJ3E6FKRQCH2NA'
-const AWS_SECRET_ACCESS_KEY = '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'
+const AWS_ACCESS_KEY_ID = 'ACCESS KEY'
+const AWS_SECRET_ACCESS_KEY = 'SECRET KEY'
 const AWS_REGION = 'ap-northeast-1'
 const AWS_ENDPOINT = 'http://localhost:8000'
 
