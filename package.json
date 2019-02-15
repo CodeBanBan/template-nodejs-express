@@ -7,7 +7,7 @@
     "start": "NODE_ENV=dev node app.js",
     "standard": "node_modules/.bin/standard",
     "test": "NODE_ENV=test node_modules/.bin/mocha --timeout 5000 -- \"tests/**/*.js\"",
-    "api:create": "claudia create --name sample-express-lambda --region ap-northeast-1 --handler lambda.handler --deploy-proxy-api --config claudia-api.json --set-env NODE_ENV=prod",
+    "api:create": "claudia create --name sample-express-lambda --region ap-northeast-1 --handler lambda.handler --deploy-proxy-api --config claudia-api.json --policies claudia-policy/*.json --set-env NODE_ENV=prod",
     "api:update": "claudia update --config claudia-api.json --set-env NODE_ENV=prod",
     "api:destroy": "claudia destroy --config claudia-api.json"
   },
