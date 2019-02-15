@@ -12,8 +12,7 @@ async function hello (req, res, next) {
 }
 
 async function create (req, res, next) {
-  //logger.info(req.body)
-  console.log(req.body)
+  logger.info(req.body)
   const name = _.get(req, 'body.name', '[No Name Body]')
   res.json({
     message: `hello world ${name}`

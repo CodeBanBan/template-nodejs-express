@@ -9,7 +9,7 @@ const errorHandlerMw = require('./app/middlewares/error-handler-middleware')
 
 const router = express()
 
-router.use(bodyParser.json({limit: '15mb'}))
+router.use(bodyParser.json({ limit: '15mb' }))
 router.use('', appRoute)
 router.use(errorHandlerMw)
 
