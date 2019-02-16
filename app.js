@@ -8,7 +8,9 @@ const Dynamoose = require('dynamoose')
 const AWS_ACCESS_KEY_ID = 'ACCESS KEY'
 const AWS_SECRET_ACCESS_KEY = 'SECRET KEY'
 const AWS_REGION = 'ap-northeast-1'
-const AWS_ENDPOINT = 'http://localhost:8000'
+const AWS_ENDPOINT_DEV = 'http://localhost:8000'
+const AWS_ENDPOINT_TEST = 'http://localhost:8100'
+const AWS_ENDPOINT = (NODE_ENV === 'test') ? AWS_ENDPOINT_TEST : AWS_ENDPOINT_DEV
 
 const awsConfig = {
   region: AWS_REGION
@@ -28,7 +30,6 @@ Dynamoose.setDefaults({
 if (NODE_ENV !== 'prod') {
   Dynamoose.local(AWS_ENDPOINT)
 }
-
 // --- End Dynamoose Configuration --- //
 
 const express = require('express')

@@ -6,7 +6,9 @@
   "scripts": {
     "start": "NODE_ENV=dev node app.js",
     "standard": "node_modules/.bin/standard",
-    "test": "NODE_ENV=test node_modules/.bin/mocha --timeout 5000 -- \"tests/**/*.js\""
+    "test:prepare": "./tests/prepare-test.sh",
+    "test:start": "NODE_ENV=test node_modules/.bin/mocha --timeout 5000 -- \"tests/**/*.js\"",
+    "test": "npm run test:prepare; npm run test:start"
   },
   "keywords": [
     "template",
