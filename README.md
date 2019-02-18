@@ -5,6 +5,7 @@
 
 
 # Detail for Dynamodb
+- Use command `npm run start:dynamodb-admin` for run WebGUI tool manage dynamodb-local
 - Develop use docker for dynamodb
     - on memory :
     `docker run --name dynamodb-dev -p 8000:8000 amazon/dynamodb-local`

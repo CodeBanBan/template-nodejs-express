@@ -2,33 +2,17 @@
 
 const NODE_ENV = process.env.NODE_ENV || 'dev'
 
+const DynamodbConfig = require('./app/configs/dynamodb-config')
 const Dynamoose = require('dynamoose')
 
 // --- Dynamoose Configuration --- //
-const AWS_ACCESS_KEY_ID = 'ACCESS KEY'
-const AWS_SECRET_ACCESS_KEY = 'SECRET KEY'
-const AWS_REGION = 'ap-northeast-1'
-const AWS_ENDPOINT_DEV = 'http://localhost:8000'
-const AWS_ENDPOINT_TEST = 'http://localhost:8100'
-const AWS_ENDPOINT = (NODE_ENV === 'test') ? AWS_ENDPOINT_TEST : AWS_ENDPOINT_DEV
-
-const awsConfig = {
-  region: AWS_REGION
-}
-
-// --- Remove this block if use AWS-Lambda --- //
-if (NODE_ENV === 'prod') {
-  awsConfig.accessKeyId = AWS_ACCESS_KEY_ID
-  awsConfig.secretAccessKey = AWS_SECRET_ACCESS_KEY
-}
-
-Dynamoose.AWS.config.update(awsConfig)
+Dynamoose.AWS.config.update(DynamodbConfig.AWS_CONFIG)
 Dynamoose.setDefaults({
-  prefix: 'sample_'
-});
+  prefix: DynamodbConfig.TABLE_CONFIG.PREFIX
+})
 
 if (NODE_ENV !== 'prod') {
-  Dynamoose.local(AWS_ENDPOINT)
+  Dynamoose.local(DynamodbConfig.ENDPOINT_URL)
 }
 // --- End Dynamoose Configuration --- //
 
