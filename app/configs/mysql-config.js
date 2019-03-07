@@ -1,18 +1,26 @@
 'use strict'
 
-// const NODE_ENV = process.env.NODE_ENV || 'dev'
+const _ = require('lodash')
+const NODE_ENV = process.env.NODE_ENV || 'dev'
 // const IS_CI = process.env.IS_CI || ''
 
-const host = 'localhost'
-const port = '8889'
-const database = 'test-node'
-const user = 'root'
-const password = 'root'
-
-module.exports = {
-  HOST: host,
-  PORT: port,
-  DATABASE: database,
-  USER: user,
-  PASSWORD: password
+const connectionProfile = {
+  dev: {
+    HOST: 'localhost',
+    PORT: '8889',
+    DATABASE: 'node_mysql',
+    USER: 'root',
+    PASSWORD: 'root'
+  },
+  test: {
+    HOST: 'localhost',
+    PORT: '8999',
+    DATABASE: 'node_mysql_test',
+    USER: 'root',
+    PASSWORD: 'root'
+  }
 }
+
+const connection = _.get(connectionProfile, NODE_ENV, connectionProfile['dev'])
+
+module.exports = connection
