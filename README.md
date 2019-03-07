@@ -5,8 +5,8 @@
 
 
 # Detail for MySQL + SequelizeJS
-- for connect with MySQL must install mysql2 `npm install sequelizejs mysql2`
-
+- for connect with MySQL must install mysql2 `npm install sequelize mysql2`
+- default mysql socket `port: 8889`
 
 
 # Reference
