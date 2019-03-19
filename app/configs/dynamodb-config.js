@@ -1,6 +1,6 @@
 'use strict'
 
-const NODE_ENV = process.env.NODE_ENV || 'dev'
+const NODE_ENV = process.env.NODE_ENV || 'development'
 const IS_CI = process.env.IS_CI || ''
 
 const AWS_ACCESS_KEY_ID = 'ACCESS KEY'
@@ -28,7 +28,7 @@ const AWS_CONFIG_PROD = {
 }
 
 module.exports = {
-  AWS_CONFIG: (NODE_ENV === 'prod') ? AWS_CONFIG_PROD : AWS_CONFIG_DEV,
+  AWS_CONFIG: (NODE_ENV === 'production') ? AWS_CONFIG_PROD : AWS_CONFIG_DEV,
   TABLE_CONFIG,
   ENDPOINT_URL
 }

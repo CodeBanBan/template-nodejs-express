@@ -11,7 +11,7 @@ Dynamoose.setDefaults({
   prefix: DynamodbConfig.TABLE_CONFIG.PREFIX
 })
 
-if (NODE_ENV !== 'prod') {
+if (NODE_ENV !== 'production') {
   Dynamoose.local(DynamodbConfig.ENDPOINT_URL)
 }
 // --- End Dynamoose Configuration --- //
