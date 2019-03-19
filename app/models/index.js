@@ -1,6 +1,6 @@
 'use strict'
 
-// const NODE_ENV = process.env.NODE_ENV || 'dev'
+// const NODE_ENV = process.env.NODE_ENV || 'development'
 // const IS_CI = process.env.IS_CI || ''
 
 const Sequelize = require('sequelize')

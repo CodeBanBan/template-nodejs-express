@@ -1,11 +1,11 @@
 'use strict'
 
 const _ = require('lodash')
-const NODE_ENV = process.env.NODE_ENV || 'dev'
+const NODE_ENV = process.env.NODE_ENV || 'development'
 // const IS_CI = process.env.IS_CI || ''
 
 const connectionProfile = {
-  dev: {
+  development: {
     HOST: 'localhost',
     PORT: '8889',
     DATABASE: 'node_mysql',
@@ -21,6 +21,6 @@ const connectionProfile = {
   }
 }
 
-const connection = _.get(connectionProfile, NODE_ENV, connectionProfile['dev'])
+const connection = _.get(connectionProfile, NODE_ENV, connectionProfile['development'])
 
 module.exports = connection
