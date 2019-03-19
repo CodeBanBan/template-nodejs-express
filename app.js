@@ -13,7 +13,7 @@ router.use(bodyParser.json({ limit: '15mb' }))
 router.use('', appRoute)
 router.use(errorHandlerMw)
 
-const isListen = (NODE_ENV !== 'prod') && (NODE_ENV !== 'test')
+const isListen = (NODE_ENV !== 'production') && (NODE_ENV !== 'test')
 if (isListen) {
   const port = 3001
   router.listen(port, () => {

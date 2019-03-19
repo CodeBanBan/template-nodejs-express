@@ -10,8 +10,8 @@
 
 ## Prepare to your project
 File: package.json
-- "api:create": "claudia create --name **_`sample-express-lambda`_** --region **_`ap-northeast-1`_** --handler lambda.handler --deploy-proxy-api --config **_`claudia-api.json`_** **_`--policies claudia-policy/*.json`_** --set-env NODE_ENV=prod",
-- "api:update": "claudia update --config **_`claudia-api.json`_** --set-env NODE_ENV=prod",
+- "api:create": "claudia create --name **_`sample-express-lambda`_** --region **_`ap-northeast-1`_** --handler lambda.handler --deploy-proxy-api --config **_`claudia-api.json`_** **_`--policies claudia-policy/*.json`_** --set-env NODE_ENV=production",
+- "api:update": "claudia update --config **_`claudia-api.json`_** --set-env NODE_ENV=production",
 - "api:destroy": "claudia destroy --config **_`claudia-api.json`_**"
 
 
