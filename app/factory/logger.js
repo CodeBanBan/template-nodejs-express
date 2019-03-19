@@ -2,7 +2,7 @@
 
 const pino = require('pino')()
 
-const NODE_ENV = process.env.NODE_ENV || 'dev'
+const NODE_ENV = process.env.NODE_ENV || 'development'
 const mockLogger = {
   child: () => mockLogger,
   error: () => {},
