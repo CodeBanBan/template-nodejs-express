@@ -1,17 +1,12 @@
 'use strict'
 
 const NODE_ENV = process.env.NODE_ENV || 'development'
-const IS_CI = process.env.IS_CI || ''
 
-const AWS_ACCESS_KEY_ID = 'ACCESS KEY'
-const AWS_SECRET_ACCESS_KEY = 'SECRET KEY'
-const AWS_REGION = 'ap-northeast-1'
+const AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID
+const AWS_SECRET_ACCESS_KEY = process.env.AWS_ACCESS_KEY_ID
+const AWS_REGION = process.env.AWS_REGION
 
-const ENDPOINT_DEV = 'http://localhost:8000'
-const ENDPOINT_TEST_LOCAL = 'http://localhost:8100'
-const ENDPOINT_TEST_CI = 'http://dynamodb:8100'
-const ENDPOINT_TEST = (IS_CI === 'ci') ? ENDPOINT_TEST_CI : ENDPOINT_TEST_LOCAL
-const ENDPOINT_URL = (NODE_ENV === 'test') ? ENDPOINT_TEST : ENDPOINT_DEV
+const ENDPOINT_URL = process.env.AWS_DYNAMODB_ENDPOINT_URL
 
 const TABLE_CONFIG = {
   PREFIX: 'sample_'
