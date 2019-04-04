@@ -4,3 +4,4 @@ claudia-api.json
 .idea/*
 node_modules
 package-lock.json
+.env.*.local
