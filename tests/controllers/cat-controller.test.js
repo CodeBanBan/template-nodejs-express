@@ -5,10 +5,12 @@ const assert = require('chai').assert
 const { requestApp, resetDynamoDBTest } = require('../test-helper')
 
 describe('Cat Controller', () => {
-  before(async () => {})
+  before(async () => {
+    await resetDynamoDBTest()
+  })
 
   after((done) => {
-    resetDynamoDBTest(done)
+    done()
   })
 
   describe('#POST /cat', () => {

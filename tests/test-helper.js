@@ -6,21 +6,6 @@ const path = require('path')
 const app = require(path.resolve('app'))
 const Dynamoose = require('dynamoose')
 
-function deleteTable (ddb, tableName) {
-  return new Promise((resolve, reject) => {
-    const params = {
-      TableName: tableName
-    }
-
-    ddb.deleteTable(params, function (err, data) {
-      if (err) {
-        return reject(err)
-      }
-      resolve(data)
-    })
-  })
-}
-
 function listTable (ddb) {
   return new Promise((resolve, reject) => {
     ddb.listTables({}, function (err, data) {
@@ -32,16 +17,67 @@ function listTable (ddb) {
   })
 }
 
-function resetDynamoDBTest (done) {
-  const ddb = Dynamoose.ddb()
-  listTable(ddb)
-    .then(tableList => {
-      const promises = tableList.map(tableName => deleteTable(ddb, tableName))
-      Promise.all(promises)
-        .then(() => {
-          done()
-        })
+function deleteAllTable (ddb, tableList) {
+  const promises = tableList.map(tableName => {
+    return new Promise((resolve, reject) => {
+      const params = {
+        TableName: tableName
+      }
+
+      ddb.deleteTable(params, function (err, data) {
+        if (err) {
+          return reject(err)
+        }
+        resolve(data)
+      })
     })
+  })
+
+  return Promise.all(promises)
+}
+
+function createAllTable (ddb, tableList) {
+  const promises = tableList.map(tableName => {
+    return new Promise((resolve, reject) => {
+      const params = {
+        TableName: tableName,
+        AttributeDefinitions: [
+          {
+            AttributeName: 'id',
+            AttributeType: 'S'
+          }
+        ],
+        KeySchema: [
+          {
+            AttributeName: 'id',
+            KeyType: 'HASH'
+          }
+        ],
+        ProvisionedThroughput: {
+          ReadCapacityUnits: 1,
+          WriteCapacityUnits: 1
+        }
+      }
+
+      ddb.createTable(params, function (err, data) {
+        if (err) {
+          return reject(err)
+        }
+        resolve(data)
+      })
+    })
+  })
+
+  return Promise.all(promises)
+}
+
+async function resetDynamoDBTest () {
+  const ddb = Dynamoose.ddb()
+
+  const tableList = await listTable(ddb)
+
+  await deleteAllTable(ddb, tableList)
+  await createAllTable(ddb, tableList)
 }
 
 module.exports = {
