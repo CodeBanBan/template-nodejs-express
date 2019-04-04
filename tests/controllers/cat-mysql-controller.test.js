@@ -12,7 +12,7 @@ describe('Cat Mysql Controller', () => {
     await Cats.create(cat1)
   })
 
-  after(async (done) => {
+  after((done) => {
     done()
   })
 
