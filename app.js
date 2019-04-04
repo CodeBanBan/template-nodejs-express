@@ -1,6 +1,7 @@
 'use strict'
 
 const NODE_ENV = process.env.NODE_ENV || 'development'
+require('./bootstrap')
 
 const DynamodbConfig = require('./app/configs/dynamodb-config')
 const Dynamoose = require('dynamoose')
