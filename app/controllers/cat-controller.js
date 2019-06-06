@@ -2,13 +2,13 @@
 
 const _ = require('lodash')
 const logger = require('../helpers/logger-helper')
-const Cats = require('../models/cats-model')
-const Dogs = require('../models/dogs-model')
+const CatRepo = require('../repositories/cat-repository')
+const DogRepo = require('../repositories/dog-repository')
 
 async function list (req, res, next) {
   try {
-    const catList = await Cats.scan().all().exec()
-    const dogList = await Dogs.scan().all().exec()
+    const catList = await CatRepo.list()
+    const dogList = await DogRepo.list()
 
     return res.json({
       cats: catList,
@@ -24,18 +24,18 @@ async function create (req, res, next) {
   const name = _.get(req, 'body.name', '[No Name Body]')
 
   try {
-    const garfield = new Cats({
+    const garfield = {
       id: 1,
       name: name
-    })
+    }
 
-    await garfield.save()
+    await CatRepo.add(garfield)
 
-    const gdog = new Dogs({
+    const gdog = {
       id: 1,
       name: `${name} in dog mode`
-    })
-    await gdog.save()
+    }
+    await DogRepo.add(gdog)
 
     res.json({
       cat: garfield,
