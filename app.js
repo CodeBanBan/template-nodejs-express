@@ -1,7 +1,7 @@
 'use strict'
 
 const NODE_ENV = process.env.NODE_ENV || 'development'
-require('./bootstrap')
+require('./app/bootstrap')
 
 const express = require('express')
 const bodyParser = require('body-parser')
