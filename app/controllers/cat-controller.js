@@ -1,7 +1,7 @@
 'use strict'
 
 const _ = require('lodash')
-const logger = require('../factory/logger')
+const logger = require('../helpers/logger-helper')
 const Cats = require('../models/cats-model')
 const Dogs = require('../models/dogs-model')
 

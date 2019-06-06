@@ -8,8 +8,9 @@ const AWS_REGION = process.env.AWS_REGION
 
 const ENDPOINT_URL = process.env.AWS_DYNAMODB_ENDPOINT_URL
 
+const PREFIX_ENV = NODE_ENV.toUpperCase()
 const TABLE_CONFIG = {
-  PREFIX: 'sample_'
+  PREFIX: `${PREFIX_ENV}-SAMPLE_`
 }
 
 const AWS_CONFIG_DEV = {
@@ -23,7 +24,7 @@ const AWS_CONFIG_PROD = {
 }
 
 module.exports = {
-  AWS_CONFIG: (NODE_ENV === 'production') ? AWS_CONFIG_PROD : AWS_CONFIG_DEV,
+  AWS_CONFIG: (NODE_ENV === 'production' || NODE_ENV === 'staging') ? AWS_CONFIG_PROD : AWS_CONFIG_DEV,
   TABLE_CONFIG,
   ENDPOINT_URL
 }
