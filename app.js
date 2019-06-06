@@ -4,7 +4,7 @@ const NODE_ENV = process.env.NODE_ENV || 'development'
 require('./app/bootstrap')
 const server = require('./app/server')
 
-const skipEnv = ['test']
+const skipEnv = ['production', 'staging', 'test']
 const isListen = !skipEnv.includes(NODE_ENV)
 
 if (isListen) {
