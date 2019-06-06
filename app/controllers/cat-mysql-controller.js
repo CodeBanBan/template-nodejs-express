@@ -2,7 +2,7 @@
 
 const _ = require('lodash')
 
-const Cats = require('../models/cats-model')
+const Cats = require('../repositories/models/cats-model')
 
 async function list (req, res, next) {
   const catList = await Cats.findAll()

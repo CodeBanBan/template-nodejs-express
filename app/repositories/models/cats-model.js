@@ -1,16 +1,15 @@
 'use strict'
 
-const Sequelize = require('sequelize')
-const sequelize = require('./index')
+const { TYPE, Sequelize } = require('./index')
 
-const Cats = sequelize.define('cats', {
+const Cats = Sequelize.define('cats', {
   id: {
     field: 'cat_id',
-    type: Sequelize.INTEGER,
+    type: TYPE.INTEGER,
     primaryKey: true,
     autoIncrement: true // Automatically gets converted to SERIAL for postgres
   },
-  name: Sequelize.STRING
+  name: TYPE.STRING
 })
 
 // --- Use create table --- //

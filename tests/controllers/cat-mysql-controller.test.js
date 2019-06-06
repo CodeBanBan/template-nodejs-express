@@ -4,7 +4,7 @@
 const assert = require('chai').assert
 const { requestApp, resetMySQLTest } = require('../test-helper')
 
-const Cats = require('../../app/models/cats-model')
+const Cats = require('../../app/repositories/models/cats-model')
 
 describe('Cat Mysql Controller', () => {
   before(async () => {

@@ -5,10 +5,10 @@ const request = require('supertest')
 const path = require('path')
 const app = require(path.resolve('app'))
 
-const sequelize = require('../app/models/index')
+const { Sequelize } = require('../app/repositories/models/index')
 
 function resetMySQLTest () {
-  const promises = Object.values(sequelize.models).map(model => model.sync({ force: true }))
+  const promises = Object.values(Sequelize.models).map(model => model.sync({ force: true }))
   return Promise.all(promises)
 }
 

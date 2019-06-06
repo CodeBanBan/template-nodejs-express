@@ -1,10 +1,7 @@
 'use strict'
 
-// const NODE_ENV = process.env.NODE_ENV || 'development'
-// const IS_CI = process.env.IS_CI || ''
-
 const Sequelize = require('sequelize')
-const MYSQL_CONFIG = require('../configs/mysql-config')
+const MYSQL_CONFIG = require('../../configs/mysql-config')
 
 const options = {
   host: MYSQL_CONFIG.HOST,
@@ -19,4 +16,7 @@ const sequelize = new Sequelize(
   options
 )
 
-module.exports = sequelize
+module.exports = {
+  TYPE: Sequelize,
+  Sequelize: sequelize
+}
