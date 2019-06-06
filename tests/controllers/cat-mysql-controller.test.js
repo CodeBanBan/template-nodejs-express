@@ -24,7 +24,6 @@ describe('Cat Mysql Controller', () => {
         .expect(200)
 
       const result = res.body
-      console.log(result)
       assert.equal(result.length, 1)
     })
   })

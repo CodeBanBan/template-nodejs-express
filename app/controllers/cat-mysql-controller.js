@@ -1,11 +1,9 @@
 'use strict'
-
 const _ = require('lodash')
-
-const Cats = require('../repositories/models/cats-model')
+const CatRepo = require('../repositories/cats-repository')
 
 async function list (req, res, next) {
-  const catList = await Cats.findAll()
+  const catList = await CatRepo.list()
 
   res.json(catList)
 }
