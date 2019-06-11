@@ -1,3 +1,4 @@
+require('../app/bootstrap/setup-environment')
 const AWS = require('aws-sdk')
 const { createServer } = require('dynamodb-admin')
 const DynamodbConfig = require('../app/configs/dynamodb-config')
