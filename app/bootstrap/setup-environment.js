@@ -6,10 +6,10 @@ const path = require('path')
 const envLocal = `${NODE_ENV}.local`
 
 let targetEnv = ''
-if (fs.existsSync(path.resolve(`.env.${envLocal}`))) {
+if (fs.existsSync(path.resolve(`env/.env.${envLocal}`))) {
   targetEnv = envLocal
-} else if (fs.existsSync(path.resolve(`.env.${NODE_ENV}`))) {
+} else if (fs.existsSync(path.resolve(`env/.env.${NODE_ENV}`))) {
   targetEnv = NODE_ENV
 }
 
-require('custom-env').env(targetEnv)
+require('custom-env').env(targetEnv, 'env')
